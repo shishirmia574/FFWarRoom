@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Add Balance</title></head>
+<body>
+<h2>Add Balance to {{ user['username'] }}</h2>
+<form method="POST">
+  Amount: <input name="amount" type="number" min="1" required><br>
+  <button type="submit">Add Balance</button>
+</form>
+<a href="/admin/dashboard">Back</a>
+</body>
+</html>

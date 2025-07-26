@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+  <h2>Available Tournaments</h2>
+  {% for t in tournaments %}
+    <div>
+      <strong>{{ t.title }}</strong> - {{ t.time }}<br>
+      Entry Fee: {{ t.entry_fee }} | Prize: {{ t.prize_pool }}<br>
+      <a href="/join/{{ t.id }}">Join</a>
+    </div>
+    <hr>
+  {% endfor %}
+  <a href="/logout">Logout</a>
+</body>
+</html>

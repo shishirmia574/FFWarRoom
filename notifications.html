@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Notifications</title></head>
+<body>
+<h2>Notifications</h2>
+<ul>
+  {% for note in notifications %}
+    <li>{{ note['message'] }} ({{ note['created_at'] }})</li>
+  {% endfor %}
+</ul>
+<a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
