@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Tournament</title></head>
+<body>
+<h2>Edit Tournament #{{ tournament['id'] }}</h2>
+<form method="POST">
+  Title: <input name="title" value="{{ tournament['title'] }}" required><br>
+  Time: <input name="time" value="{{ tournament['time'] }}" required><br>
+  Entry Fee: <input name="entry_fee" type="number" value="{{ tournament['entry_fee'] }}" min="0" required><br>
+  Prize Pool: <input name="prize_pool" value="{{ tournament['prize_pool'] }}" required><br>
+  Status:
+  <select name="status">
+    <option value="Upcoming" {% if tournament['status']=='Upcoming' %}selected{% endif %}>Upcoming</option>
+    <option value="Ongoing" {% if tournament['status']=='Ongoing' %}selected{% endif %}>Ongoing</option>
+    <option value="Completed" {% if tournament['status']=='Completed' %}selected{% endif %}>Completed</option>
+  </select><br>
+  <button type="submit">Update</button>
+</form>
+<a href="/admin/dashboard">Back</a>
+</body>
+</html>
