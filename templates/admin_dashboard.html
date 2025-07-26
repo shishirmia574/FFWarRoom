@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Dashboard</title></head>
+<body>
+  <h2>Welcome Admin</h2>
+
+  <a href="/admin/create_tournament">Create Tournament</a><br><br>
+
+  <h3>All Users</h3>
+  {% for user in users %}
+    <p>
+      {{ user.username }} 
+      {% if user.is_banned %}
+        (BANNED) <a href="/admin/unban_user/{{ user.id }}">Unban</a>
+      {% else %}
+        <a href="/admin/ban_user/{{ user.id }}">Ban</a>
+      {% endif %}
+    </p>
+  {% endfor %}
+
+  <h3>All Tournaments</h3>
+  {% for t in tournaments %}
+    <div>{{ t.title }} - {{ t.time }}</div>
+  {% endfor %}
+
+  <h3>Participants</h3>
+  {% for p in participants %}
+    <p>User {{ p.user_id }} joined Tournament {{ p.tournament_id }} | Team: {{ p.team_name }}</p>
+  {% endfor %}
+</body>
+</html>
